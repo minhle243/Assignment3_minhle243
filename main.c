@@ -21,7 +21,7 @@ int main(int arg_count, char *arg_vector[]){
 		return 1;
 	}
 	
-	
+	//Allocate memory for structure
 	Array *input_array = (Array *)malloc(sizeof(Array));
 	if(input_array == NULL){
 		fprintf(stderr, "Memory allocation failed. \n");
@@ -35,14 +35,14 @@ int main(int arg_count, char *arg_vector[]){
 		fprintf(stderr, "Memory allocation failed. \n");
 		free(input_array); 
 		return 1;
-	}
+	} //cleanup 
 	
 	
 	for(int i = 0; i < size; i++){
 		input_array-> data[i] = (double)(i + 1);
 	}
 	
-	
+	//step 4.a
 	printf("Initial state: \n");
 	output_array(input_array);
 	
@@ -64,7 +64,7 @@ int main(int arg_count, char *arg_vector[]){
 	output_array(averaged_array);
 	
 	
-	
+	//free all allocated memory
 	free(input_array->data);
 	free(input_array);
 	
